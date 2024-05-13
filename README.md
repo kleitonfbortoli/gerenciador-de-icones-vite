@@ -1,39 +1,19 @@
-# gerenciador-de-icones
+# Gerenciador de Ícones com Vite
 
-This template should help get you started developing with Vue 3 in Vite.
+Projeto criado com o objetivo de exemplificar um modelo de gerenciamento de ícones próprios em uma aplicação, baseado na importação em lote usando o servidor de desenvolvimento Vite.
 
-## Recommended IDE Setup
+## Descrição
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Esse modelo de gerenciamento de ícones, utiliza o recurso [`import.meta.glob`](https://vitejs.dev/guide/features#glob-import) do vite que importa arquivos em lote, para simplificar a importação de ícones para uma aplicação que utiliza ícones próprios, como arquivos SVG, importando uma lista chave-valor, onde a chave é o caminho para o arquivo, e o valor uma função de importação. Usando isso, é possível tratar a lista para que a chave seja somente o nome do arquivo, e o valor se mantenha o mesmo.
+Após esse tratamento, é possível usar recursos da linguagem utilizada, para importar o recurso de forma assíncrona, como neste exemplo foi utilizado o [`defineAsyncComponent`](https://vuejs.org/guide/components/async) da biblioteca Vue.js.
 
-## Type Support for `.vue` Imports in TS
+## Vantagens
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- Fácil adição de novos ícones
+- Fácil uso na aplicação
+- Importação assíncrona, não importando todos os ícones no início
 
-## Customize configuration
+## Desvantagens
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+- Impossibilidade de usar nomes duplicados para ícones, gerando comportamento indesejado caso haja
+- Não possibilidade de confirmar a existencia do ícone buscado
